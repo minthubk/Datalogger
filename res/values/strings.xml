@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Datalogger</string>
+    
+    <string name="title">Datalogger control</string>
+    
+    <string name="status_prefix">Status: </string>
+    <string name="status_running">On</string>
+    <string name="status_not_running">Off</string>
+    
+    <string name="toggle_text">Toggle</string>
+
+</resources>
