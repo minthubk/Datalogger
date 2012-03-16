@@ -21,8 +21,10 @@ public class DataloggerControlActivity extends Activity {
 	
 	TextView statusLabel;
 	
-
-    public int onStartCommand() {
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Log.d("Datalogger", "Activity created!");
         setContentView(R.layout.control);
         statusLabel = (TextView) findViewById(R.id.statusLabel);
         
@@ -41,7 +43,6 @@ public class DataloggerControlActivity extends Activity {
 			}
 		});
         
-        return Service.START_STICKY;
     }
     
     private RunningServiceInfo getService() {

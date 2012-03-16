@@ -32,9 +32,8 @@ public class DataloggerService extends Service {
 	ScheduledExecutorService scheduler;
 	
 	@Override
-	public void onCreate() {
-		Log.d("Datalogger", "Service created!");
-        scheduler = Executors.newScheduledThreadPool(1);
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		scheduler = Executors.newScheduledThreadPool(1);
         schedulerHandle = 
         	scheduler.scheduleAtFixedRate(
         		new Runnable() {
@@ -43,6 +42,7 @@ public class DataloggerService extends Service {
         			}
         		}, 0, 1, TimeUnit.SECONDS);
         super.onCreate();
+        return START_STICKY;
 	}
 	
 	@Override
