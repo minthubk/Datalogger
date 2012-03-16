@@ -1,7 +1,5 @@
 package fi.dy.esav.Datalogger;
 
-import java.io.File;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -15,7 +13,6 @@ public class Settings {
 	public boolean log_GPS;
 	
 	private Context context;
-	private boolean loaded;
 	
 	public Settings(Context context) {
 		this.context=context;
@@ -27,8 +24,8 @@ public class Settings {
 		file_path = prefs.getString("file_path", Environment.getExternalStorageDirectory().getAbsolutePath());
 		file_path = prefs.getString("file_path", Environment.getExternalStorageDirectory().getAbsolutePath());
 		
-		log_Acc = prefs.getBoolean("file_path", false);
-		log_GPS = prefs.getBoolean("file_path", false);
+		log_Acc = prefs.getBoolean("log_Acc", false);
+		log_GPS = prefs.getBoolean("log_GPS", false);
 	}
 	
 	public void write() {
