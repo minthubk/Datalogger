@@ -26,7 +26,7 @@ public class DataloggerControlActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		Log.d("Datalogger", "Activity created!");
         setContentView(R.layout.control);
-        statusLabel = (TextView) findViewById(R.id.statusLabel);
+        statusLabel = (TextView) findViewById(R.id.lbl_status);
         
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(
@@ -58,13 +58,13 @@ public class DataloggerControlActivity extends Activity {
     	if(getService() != null) {
     		runOnUiThread(new Runnable() {
 				public void run() {
-					statusLabel.setText(getString(R.string.status_prefix) + getString(R.string.status_running));
+					statusLabel.setText(getString(R.string.status_prefix) + " " + getString(R.string.status_running));
 				}
     		});
     	} else {
     		runOnUiThread(new Runnable() {
 				public void run() {
-					statusLabel.setText(getString(R.string.status_prefix) + getString(R.string.status_not_running));
+					statusLabel.setText(getString(R.string.status_prefix) + " " + getString(R.string.status_not_running));
 				}
     		});
     	}

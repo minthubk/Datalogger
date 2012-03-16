@@ -5,10 +5,14 @@
     
     <string name="title">Datalogger control</string>
     
-    <string name="status_prefix">Status: </string>
-    <string name="status_running">On</string>
-    <string name="status_not_running">Off</string>
+    <string name="status_prefix">Status:</string>
+    <string name="status_running">Running</string>
+    <string name="status_not_running">Not running</string>
     
     <string name="toggle_text">Toggle</string>
+    
+    <string name="lbl_things_to_log">Log:</string>
+    
+    <string name="lbl_acc">Accelerometer:</string>
 
 </resources>
