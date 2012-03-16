@@ -1,13 +1,14 @@
 package fi.dy.esav.Datalogger;
 
+import java.io.File;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Environment;
 
 public class Settings {
-	public String file_path;
-	public String file_name;
+	public String filename;
 	
 	public boolean log_Acc;
 	public boolean log_GPS;
@@ -21,9 +22,9 @@ public class Settings {
 	public void read() {
 		SharedPreferences prefs = context.getSharedPreferences("Datalogger.DataloggerSettings",0);
 		
-		file_path = prefs.getString("file_path", Environment.getExternalStorageDirectory().getAbsolutePath());
-		file_path = prefs.getString("file_path", Environment.getExternalStorageDirectory().getAbsolutePath());
-		
+		filename = prefs.getString("filename", 
+				                   Environment.getExternalStorageDirectory().getAbsolutePath()
+					               + File.separator + "data.txt");
 		log_Acc = prefs.getBoolean("log_Acc", false);
 		log_GPS = prefs.getBoolean("log_GPS", false);
 	}
@@ -32,9 +33,7 @@ public class Settings {
 		SharedPreferences prefs = context.getSharedPreferences("Datalogger.DataloggerSettings",0);
 		Editor editor = prefs.edit();
 		
-		editor.putString("file_path", file_path);
-		editor.putString("file_name", file_name);
-		
+		editor.putString("filename", filename);
 		editor.putBoolean("log_Acc", log_Acc);
 		editor.putBoolean("log_GPS", log_GPS);
 		

@@ -15,18 +15,36 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class DataloggerControlActivity extends Activity {
 	
 	TextView statusLabel;
+	CheckBox chkbox_acc;
+	CheckBox chkbox_gps;
+	EditText tf_filename;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.d("Datalogger", "Activity created!");
         setContentView(R.layout.control);
+        
         statusLabel = (TextView) findViewById(R.id.lbl_status);
+        Button toggleButton = (Button) findViewById(R.id.toggleButton);
+        
+        chkbox_acc = (CheckBox) findViewById(R.id.chkbox_acc);
+        chkbox_gps = (CheckBox) findViewById(R.id.chkbox_gps);
+        tf_filename = (EditText) findViewById(R.id.tf_filename);
+        
+        Settings settings = new Settings(this);
+        settings.read();
+        
+        chkbox_acc.setChecked(settings.log_Acc);
+        chkbox_gps.setChecked(settings.log_GPS);
+        tf_filename.setText(settings.filename);
         
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(
@@ -36,7 +54,7 @@ public class DataloggerControlActivity extends Activity {
         			}
         		}, 0, 1, TimeUnit.SECONDS);
         
-        Button toggleButton = (Button) findViewById(R.id.toggleButton);
+        
         toggleButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				toggleService();
@@ -44,6 +62,19 @@ public class DataloggerControlActivity extends Activity {
 		});
         
     }
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		
+		Settings settings = new Settings(this);
+		
+		settings.log_Acc = chkbox_acc.isChecked();
+		settings.log_GPS = chkbox_gps.isChecked();
+		settings.filename = tf_filename.getText().toString();
+		
+		settings.write();
+	}
     
     private RunningServiceInfo getService() {
     	for (RunningServiceInfo s : ((ActivityManager) getSystemService(ACTIVITY_SERVICE)).getRunningServices(Integer.MAX_VALUE)) {

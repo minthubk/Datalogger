@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Datalogger</string>
-    
-    <string name="title">Datalogger control</string>
+    <string name="app_name">Datalogger control</string>
     
     <string name="status_prefix">Status:</string>
     <string name="status_running">Running</string>
@@ -15,6 +13,5 @@
     
     <string name="lbl_acc">Accelerometer:</string>
     <string name="lbl_gps">GPS:</string>
-    
-
+    <string name="lbl_filename">Filename:</string>
 </resources>
