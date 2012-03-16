@@ -100,13 +100,13 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/lbl_somethingelse"
+            android:id="@+id/lbl_gps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lbl_acc" />
+            android:text="@string/lbl_gps" />
 
         <CheckBox
-            android:id="@+id/chkbox_somethingelse"
+            android:id="@+id/chkbox_gps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="" />

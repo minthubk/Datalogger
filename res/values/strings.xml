@@ -14,5 +14,7 @@
     <string name="lbl_things_to_log">Log:</string>
     
     <string name="lbl_acc">Accelerometer:</string>
+    <string name="lbl_gps">GPS:</string>
+    
 
 </resources>
