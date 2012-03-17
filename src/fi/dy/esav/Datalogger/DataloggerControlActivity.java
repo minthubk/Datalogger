@@ -39,7 +39,7 @@ public class DataloggerControlActivity extends Activity {
         chkbox_gps = (CheckBox) findViewById(R.id.chkbox_gps);
         tf_filename = (EditText) findViewById(R.id.tf_filename);
         
-        Settings settings = new Settings(this);
+        DataloggerSettings settings = new DataloggerSettings(this);
         settings.read();
         
         chkbox_acc.setChecked(settings.log_Acc);
@@ -67,7 +67,7 @@ public class DataloggerControlActivity extends Activity {
 	public void onDestroy() {
 		super.onDestroy();
 		
-		Settings settings = new Settings(this);
+		DataloggerSettings settings = new DataloggerSettings(this);
 		
 		settings.log_Acc = chkbox_acc.isChecked();
 		settings.log_GPS = chkbox_gps.isChecked();

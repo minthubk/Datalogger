@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Environment;
 
-public class Settings {
+public class DataloggerSettings {
 	public String filename;
 	
 	public boolean log_Acc;
@@ -15,7 +15,7 @@ public class Settings {
 	
 	private Context context;
 	
-	public Settings(Context context) {
+	public DataloggerSettings(Context context) {
 		this.context=context;
 	}
 	
